@@ -1,20 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
+import { ColorComponent } from './components/color/color.component';
+import { TwoWayComponent } from './components/two-way/two-way.component';
+import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
+import { HooksMethodComponent } from './components/hooks-method/hooks-method.component';
+import { FilsComponent } from './components/fils/fils.component';
+import { PereComponent } from './components/pere/pere.component';
+import { CvComponent } from './cv/cv/cv.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
-    SecondComponent
+    SecondComponent,
+    ColorComponent,
+    TwoWayComponent,
+    RotatingCardComponent,
+    HooksMethodComponent,
+    FilsComponent,
+    PereComponent,
+    CvComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

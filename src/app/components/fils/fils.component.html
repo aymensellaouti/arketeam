@@ -1,0 +1,10 @@
+<p>fils works!</p>
+
+<input type="text" class="form-control" [(ngModel)]="message">
+
+<button
+  class="btn btn-success"
+  (click)="sendMessage()"
+  [disabled]="!message.trim().length">
+  Envoyer Message à Papa
+</button>
