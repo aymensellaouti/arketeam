@@ -1,0 +1,18 @@
+<p [hidden]="isHidden">first works!</p>
+<div (click)="sayCc()">cc {{ name }}</div>
+<app-second></app-second>
+<button (click)="afficherCacher()" class="btn btn-primary">
+  afficher cacher
+</button>
+<input type="text" #monInput>
+
+<button (click)="chanegMessage(monInput.value)">
+  show input message
+</button>
+<p>
+  cc voici le message contenu dans mon input : {{message}}
+</p>
+<!--
+  attributs
+  evenements
+ -->

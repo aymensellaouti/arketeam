@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "arketeam"
+    }
+  },
+  "defaultProject": "arketeam",
+  "cli": {
+    "analytics": false
+  }
 }
