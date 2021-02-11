@@ -8,6 +8,9 @@ import { Personne } from '../model/personne';
 })
 export class ItemComponent implements OnInit {
   @Input() personne: Personne = null;
+  @Input() height = 50;
+  @Input() width = 50;
+  @Input() isDiv = true;
   @Output() selectItem = new EventEmitter<Personne>();
   constructor() {}
   ngOnInit(): void {}

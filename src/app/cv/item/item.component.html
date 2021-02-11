@@ -1,13 +1,28 @@
-<div (click)="selectPersonne()">
+<div (click)="selectPersonne()" *ngIf="isDiv">
   <img
     src="assets/images/{{ personne?.path | defaultImage }}"
     alt="{{ personne?.name }}"
-    width="50px"
-    heigth="50px"
+    [ngStyle]="{
+      width: width + 'px',
+      heigth: height + 'px'
+    }"
     class="rounded-circle"
   />
   {{ personne?.firstname }}
-  {{ personne?.name | uppercase | slice: 2:4 }}
-<!--
+  {{ personne?.name }}
+  <!--
   {{ 1 | usdBTC }} btc, {{ 1 | usdBTC: 1 }} usd -->
 </div>
+<span *ngIf="!isDiv">
+  <img
+    src="assets/images/{{ personne?.path | defaultImage }}"
+    alt="{{ personne?.name }}"
+    [ngStyle]="{
+      width: width + 'px',
+      heigth: height + 'px'
+    }"
+    class="rounded-circle"
+  />
+  {{ personne?.firstname }}
+  {{ personne?.name }}
+</span>
