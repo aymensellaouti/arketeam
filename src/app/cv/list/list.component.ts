@@ -13,17 +13,18 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.personnes = [
-      new Personne(
-        1,
-        'sellaouti',
-        'aymen',
-        'teacher',
-        'rotating_card_profile.png',
-        1234,
-        38
-      ),
+      new Personne(1, 'sellaouti', 'aymen', 'teacher', 'as.jpg', 1234, 38),
       new Personne(
         2,
+        'Atouillant',
+        'Mathieu',
+        'Dev',
+        'rotating_card_profile2.png',
+        1234,
+        17
+      ),
+      new Personne(
+        3,
         'Atouillant',
         'Mathieu',
         'Dev',

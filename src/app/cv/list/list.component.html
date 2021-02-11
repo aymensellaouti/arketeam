@@ -1,14 +1,15 @@
 <ol class="list-group">
-  <li class="list-group-item">
+  <li
+    *ngFor="let actualPersonne of personnes; let isOdd = odd"
+    class="list-group-item"
+    [ngClass]="{
+      'list-group-item-danger': isOdd,
+      'list-group-item-warning': !isOdd
+    }"
+  >
     <app-item
       (selectItem)="forwardItem($event)"
-      [personne]="personnes[0]"
-    ></app-item>
-  </li>
-  <li class="list-group-item">
-    <app-item
-      (selectItem)="forwardItem($event)"
-      [personne]="personnes[1]"
+      [personne]="actualPersonne"
     ></app-item>
   </li>
 </ol>

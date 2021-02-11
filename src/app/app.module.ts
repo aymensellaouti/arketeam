@@ -18,6 +18,10 @@ import { ItemComponent } from './cv/item/item.component';
 import { ListComponent } from './cv/list/list.component';
 import { CardComponent } from './cv/card/card.component';
 import { NgStyleComponent } from './directives/ng-style/ng-style.component';
+import { WordComponent } from './components/word/word.component';
+import { NgClassComponent } from './directives/ng-class/ng-class.component';
+import { HighlightDirective } from './directives/highlight.directive';
+import { RainbowDirective } from './directives/rainbow.directive';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { NgStyleComponent } from './directives/ng-style/ng-style.component';
     ItemComponent,
     ListComponent,
     CardComponent,
-    NgStyleComponent
+    NgStyleComponent,
+    WordComponent,
+    NgClassComponent,
+    HighlightDirective,
+    RainbowDirective
   ],
   imports: [
     BrowserModule,
