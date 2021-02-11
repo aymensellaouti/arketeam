@@ -1,1 +1,8 @@
-<p>cv works!</p>
+<div class="row">
+  <div class="col">
+    <app-list (forwardPersonne)="getSelectedPersonne($event)"></app-list>
+  </div>
+  <div class="col">
+    <app-card [personne]="selectedPersonne"></app-card>
+  </div>
+</div>

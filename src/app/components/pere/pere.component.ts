@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Personne } from './../../cv/model/personne';
 
 @Component({
   selector: 'app-pere',
@@ -8,18 +7,8 @@ import { Personne } from './../../cv/model/personne';
 })
 export class PereComponent implements OnInit {
   constructor() {}
-  personne = new Personne(
-    1,
-    'sellaouti',
-    'aymen',
-    'teacher',
-    'as.jpg',
-    1234,
-    38
-  );
-  ngOnInit(): void {
-    console.log(this.personne);
-  }
+
+  ngOnInit(): void {}
   processSonMessage(message: string): void {
     alert(message);
   }

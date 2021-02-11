@@ -14,6 +14,9 @@ import { HooksMethodComponent } from './components/hooks-method/hooks-method.com
 import { FilsComponent } from './components/fils/fils.component';
 import { PereComponent } from './components/pere/pere.component';
 import { CvComponent } from './cv/cv/cv.component';
+import { ItemComponent } from './cv/item/item.component';
+import { ListComponent } from './cv/list/list.component';
+import { CardComponent } from './cv/card/card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { CvComponent } from './cv/cv/cv.component';
     HooksMethodComponent,
     FilsComponent,
     PereComponent,
-    CvComponent
+    CvComponent,
+    ItemComponent,
+    ListComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
