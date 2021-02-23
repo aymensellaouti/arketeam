@@ -1,0 +1,18 @@
+<img
+  [ngStyle]="{
+    height: heigth + 'px',
+    width: width + 'px'
+  }"
+  src="assets/images/{{ path }}"
+  alt="{{ path }}"
+  class="rounded-circle"
+/>
+<img
+  [ngStyle]="{
+    height: heigth + 'px',
+    width: width + 'px'
+  }"
+  src="assets/images/{{ sliderObservable | async }}"
+  alt="{{ path }}"
+  class="rounded-circle"
+/>

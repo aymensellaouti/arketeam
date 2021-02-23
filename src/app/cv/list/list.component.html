@@ -7,9 +7,6 @@
       'list-group-item-warning': !isOdd
     }"
   >
-    <app-item
-      (selectItem)="forwardItem($event)"
-      [personne]="actualPersonne"
-    ></app-item>
+    <app-item [personne]="actualPersonne"></app-item>
   </li>
 </ol>

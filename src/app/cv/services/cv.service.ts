@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Personne } from './../model/personne';
 
 @Injectable({
@@ -6,6 +7,7 @@ import { Personne } from './../model/personne';
 })
 export class CvService {
   personnes: Personne[] = [];
+  selectItemSubject = new Subject<Personne>();
   constructor() {
     this.personnes = [
       new Personne(1, 'sellaouti', 'aymen', 'teacher', 'as.jpg', 1234, 38),
@@ -13,7 +15,7 @@ export class CvService {
       new Personne(3, 'Atouillant', 'Mathieu', 'Dev', '', 1234, 17),
     ];
   }
-
+  personne = new Personne();
   getCvs(): Personne[] {
     return this.personnes;
   }
@@ -39,5 +41,10 @@ export class CvService {
     } catch (e) {
       return false;
     }
+  }
+
+  selectItem(personne) {
+    // va informer tous les membres inscrits qu'une personne a été selectionné
+    this.selectItemSubject.next(personne);
   }
 }
