@@ -30,6 +30,11 @@ import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterSimulatorComponent } from './components/router-simulator/router-simulator.component';
 import { DetailPersonneComponent } from './cv/detail-personne/detail-personne.component';
+import { AddPersonneComponent } from './cv/add-personne/add-personne.component';
+import { BackComponent } from './component/back/back.component';
+import { FrontComponent } from './component/front/front.component';
+import { NF404Component } from './components/nf404/nf404.component';
+import { TestFormComponent } from './components/test-form/test-form.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +63,11 @@ import { DetailPersonneComponent } from './cv/detail-personne/detail-personne.co
     HeaderComponent,
     RouterSimulatorComponent,
     DetailPersonneComponent,
+    AddPersonneComponent,
+    BackComponent,
+    FrontComponent,
+    NF404Component,
+    TestFormComponent,
   ],
   imports: [
     BrowserModule,

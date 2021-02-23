@@ -1,0 +1,9 @@
+<form #monForm="ngForm">
+  Name : <input type="text" name="nom" ngModel class="form-control" />
+  Age :
+  <input type="text" name="age" ngModel class="form-control" />
+  <button (click)="processForm(monForm)" type="submit" class="btn btn-primary">
+    envoyer
+  </button>
+</form>
+

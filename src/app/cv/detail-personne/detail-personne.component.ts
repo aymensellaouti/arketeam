@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CvService } from '../services/cv.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Personne } from '../model/personne';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-detail-personne',
   templateUrl: './detail-personne.component.html',
   styleUrls: ['./detail-personne.component.css'],
 })
-export class DetailPersonneComponent implements OnInit {
+export class DetailPersonneComponent implements OnInit, OnDestroy {
   personne: Personne = null;
+  paramsSubscription: Subscription = null;
   constructor(
     private cvService: CvService,
     private activatedRoute: ActivatedRoute,
@@ -19,7 +21,7 @@ export class DetailPersonneComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) => {
+    this.paramsSubscription = this.activatedRoute.params.subscribe((params) => {
       this.personne = this.cvService.getCvById(params.id);
       if (!this.personne) {
         this.router.navigate(['cv']);
@@ -33,5 +35,11 @@ export class DetailPersonneComponent implements OnInit {
     } else {
       this.toaster.error(`Problème veuillez contacter l'admin`);
     }
+  }
+
+  ngOnDestroy() {
+    console.log('Destruction de detailComponent');
+
+    this.paramsSubscription.unsubscribe();
   }
 }
