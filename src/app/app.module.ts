@@ -29,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterSimulatorComponent } from './components/router-simulator/router-simulator.component';
+import { DetailPersonneComponent } from './cv/detail-personne/detail-personne.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { RouterSimulatorComponent } from './components/router-simulator/router-s
     EmbaucheComponent,
     HeaderComponent,
     RouterSimulatorComponent,
+    DetailPersonneComponent,
   ],
   imports: [
     BrowserModule,
