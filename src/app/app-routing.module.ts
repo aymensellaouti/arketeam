@@ -11,6 +11,7 @@ import { WordComponent } from './components/word/word.component';
 import { AddPersonneComponent } from './cv/add-personne/add-personne.component';
 import { CvComponent } from './cv/cv/cv.component';
 import { DetailPersonneComponent } from './cv/detail-personne/detail-personne.component';
+import { LoginComponent } from './pages/login/login.component';
 import { TodoComponent } from './todo/todo/todo.component';
 /* cv */
 const routes: Routes = [
@@ -36,6 +37,7 @@ const routes: Routes = [
       },
       { path: 'color/:color', component: ColorComponent },
       { path: 'word', component: WordComponent },
+      { path: 'login', component: LoginComponent },
     ],
   },
   {
