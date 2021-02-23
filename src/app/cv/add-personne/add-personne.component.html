@@ -1,4 +1,4 @@
-<form #formumaire="ngForm">
+<form #addPersonneForm="ngForm">
   <label for="name">Name</label>
   <input
     required
@@ -55,7 +55,9 @@
   <input id="path" type="text" ngModel name="path" class="form-control" />
 
   <button
+    [disabled]="addPersonneForm.invalid"
     class="btn btn-primary"
+    (click)="addPersonne(addPersonneForm.value)"
   >
     Envoyer
   </button>

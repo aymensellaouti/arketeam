@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
-import { ColorComponent } from './components/color/color.component';
+import { ColorComponent } from './pages/color/color.component';
 import { TwoWayComponent } from './components/two-way/two-way.component';
 import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
 import { HooksMethodComponent } from './components/hooks-method/hooks-method.component';
@@ -18,7 +18,7 @@ import { ItemComponent } from './cv/item/item.component';
 import { ListComponent } from './cv/list/list.component';
 import { CardComponent } from './cv/card/card.component';
 import { NgStyleComponent } from './directives/ng-style/ng-style.component';
-import { WordComponent } from './components/word/word.component';
+import { WordComponent } from './pages/word/word.component';
 import { NgClassComponent } from './directives/ng-class/ng-class.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
@@ -36,6 +36,7 @@ import { FrontComponent } from './component/front/front.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { TestFormComponent } from './components/test-form/test-form.component';
 import { LoginComponent } from './pages/login/login.component';
+import { TestObservableComponent } from './components/test-observable/test-observable.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { LoginComponent } from './pages/login/login.component';
     NF404Component,
     TestFormComponent,
     LoginComponent,
+    TestObservableComponent,
   ],
   imports: [
     BrowserModule,

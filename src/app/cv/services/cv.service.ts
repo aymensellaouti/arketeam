@@ -30,4 +30,14 @@ export class CvService {
     this.personnes.splice(index, 1);
     return true;
   }
+
+  addCv(personne: Personne): boolean {
+    try {
+      personne.id = this.personnes[this.personnes.length - 1].id + 1;
+      this.personnes.push(personne);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
 }
