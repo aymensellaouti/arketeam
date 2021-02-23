@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rotating-card',
@@ -11,9 +12,15 @@ export class RotatingCardComponent implements OnInit {
   job = 'Associate professor';
   age = 38;
   path = 'rotating_card_profile3.png';
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  goToCv(): void {
+    this.router.navigate(['cv']);
   }
 
 }
