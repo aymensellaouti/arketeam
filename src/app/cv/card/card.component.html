@@ -1,13 +1,14 @@
-<div class="card-container"
-  *ngIf="personne"
->
+<div class="card-container" *ngIf="personne">
   <div class="card">
     <div class="front">
       <div class="cover">
         <img src="assets/images/rotating_card_thumb2.png" />
       </div>
       <div class="user">
-        <img class="img-circle" src="assets/images/{{ personne?.path |defaultImage }}" />
+        <img
+          class="img-circle"
+          src="assets/images/{{ personne?.path | defaultImage }}"
+        />
       </div>
       <div class="content">
         <div class="main">
@@ -52,10 +53,9 @@
         </div>
       </div>
       <div class="footer">
-        <button
-          (click)="embaucher()"
-          class="btn btn-primary">
-          Embaucher
+        <button (click)="embaucher()" class="btn btn-primary">Embaucher</button>
+        <button [routerLink]="['/cv', personne.id]" class="btn btn-dark">
+          Détails
         </button>
       </div>
     </div>
