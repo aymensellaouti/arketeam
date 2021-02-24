@@ -1,84 +1,105 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" [routerLink]="['']">Cv Tech</a>
+  <a class="navbar-brand">CvTech</a>
   <button
     class="navbar-toggler"
     type="button"
     data-toggle="collapse"
-    data-target="#navbarNavAltMarkup"
-    aria-controls="navbarNavAltMarkup"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
     aria-expanded="false"
     aria-label="Toggle navigation"
   >
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a
-        class="navbar-brand"
-        [routerLink]="['']"
-        routerLinkActive="active text-primary"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >Accueil</a
-      >
-      <a
-        class="nav-item nav-link"
-        [routerLink]="['/todo']"
-        routerLinkActive="active text-primary"
-      >
-        Todo <span class="sr-only">(current)</span></a
-      >
-      <a
-        class="nav-item nav-link"
-        [routerLink]="['/cv']"
-        routerLinkActive="active text-primary"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >Cv</a
-      >
-      <a
-        *ngIf="authService.isAuthenticated()"
-        class="nav-item nav-link"
-        [routerLink]="['/cv/add']"
-        routerLinkActive="active text-primary"
-        >Add Cv</a
-      >
-      <a
-        class="nav-item nav-link"
-        [routerLink]="['/word']"
-        routerLinkActive="active text-primary"
-        >Word</a
-      >
-      <a
-        class="nav-item nav-link"
-        [routerLink]="['/color', 'red']"
-        routerLinkActive="active text-primary"
-        >Color</a
-      >
-      <a
-        *ngIf="!authService.isAuthenticated()"
-        class="nav-item nav-link"
-        [routerLink]="['/login']"
-        routerLinkActive="active text-primary"
-        >Login</a
-      >
-      <a
-        *ngIf="authService.isAuthenticated()"
-        class="nav-item nav-link"
-        (click)="logout()"
-        >Logout</a
-      >
 
-      <select
-        (change)="translate()"
-        class="form-control"
-        [(ngModel)]="currentLangage"
-      >
-        <option
-          *ngFor="let lang of translateService.getLangs()"
-          value="{{ lang }}"
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"
+          >Home <span class="sr-only">(current)</span></a
         >
-          {{ lang }}
-        </option>
-      </select>
-    </div>
+      </li>
+      <li class="nav-item">
+        <a
+          class="navbar-brand"
+          [routerLink]="['']"
+          routerLinkActive="active text-primary"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Accueil</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/todo']"
+          routerLinkActive="active text-primary"
+        >
+          Todo <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/cv']"
+          routerLinkActive="active text-primary"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Cv</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          *ngIf="authService.isAuthenticated()"
+          class="nav-link"
+          [routerLink]="['/cv/add']"
+          routerLinkActive="active text-primary"
+          >Add Cv</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/word']"
+          routerLinkActive="active text-primary"
+          >Word</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/color', 'red']"
+          routerLinkActive="active text-primary"
+          >Color</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          *ngIf="!authService.isAuthenticated()"
+          class="nav-link"
+          [routerLink]="['/login']"
+          routerLinkActive="active text-primary"
+          >Login</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          *ngIf="authService.isAuthenticated()"
+          class="nav-link"
+          (click)="logout()"
+          >Logout</a
+        >
+      </li>
+    </ul>
+    <select
+      (change)="translate()"
+      class="form-control my-2 my-lg-0 col-2"
+      [(ngModel)]="currentLangage"
+    >
+      <option
+        *ngFor="let lang of translateService.getLangs()"
+        value="{{ lang }}"
+      >
+        {{ lang }}
+      </option>
+    </select>
   </div>
 </nav>
