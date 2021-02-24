@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { BackComponent } from './component/back/back.component';
 import { FrontComponent } from './component/front/front.component';
 import { ColorComponent } from './pages/color/color.component';
@@ -8,12 +8,8 @@ import { NF404Component } from './components/nf404/nf404.component';
 import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
 import { SecondComponent } from './components/second/second.component';
 import { WordComponent } from './pages/word/word.component';
-import { AddPersonneComponent } from './cv/add-personne/add-personne.component';
-import { CvComponent } from './cv/cv/cv.component';
-import { DetailPersonneComponent } from './cv/detail-personne/detail-personne.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TodoComponent } from './todo/todo/todo.component';
-import { AuthGuard } from './guards/auth.guard';
 /* cv */
 const routes: Routes = [
   {
@@ -30,15 +26,7 @@ const routes: Routes = [
       { path: 'todo', component: TodoComponent },
       {
         path: 'cv',
-        children: [
-          { path: '', component: CvComponent },
-          {
-            path: 'add',
-            component: AddPersonneComponent,
-            canActivate: [AuthGuard],
-          },
-          { path: ':id', component: DetailPersonneComponent },
-        ],
+        loadChildren: () => import('./cv/cv.module').then((m) => m.CvModule),
       },
       { path: 'color/:color', component: ColorComponent },
       { path: 'word', component: WordComponent },
@@ -54,7 +42,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
