@@ -13,6 +13,7 @@ import { CvComponent } from './cv/cv/cv.component';
 import { DetailPersonneComponent } from './cv/detail-personne/detail-personne.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TodoComponent } from './todo/todo/todo.component';
+import { AuthGuard } from './guards/auth.guard';
 /* cv */
 const routes: Routes = [
   {
@@ -31,7 +32,11 @@ const routes: Routes = [
         path: 'cv',
         children: [
           { path: '', component: CvComponent },
-          { path: 'add', component: AddPersonneComponent },
+          {
+            path: 'add',
+            component: AddPersonneComponent,
+            canActivate: [AuthGuard],
+          },
           { path: ':id', component: DetailPersonneComponent },
         ],
       },

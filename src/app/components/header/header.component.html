@@ -35,6 +35,7 @@
         >Cv</a
       >
       <a
+        *ngIf="authService.isAuthenticated()"
         class="nav-item nav-link"
         [routerLink]="['/cv/add']"
         routerLinkActive="active text-primary"
@@ -53,11 +54,31 @@
         >Color</a
       >
       <a
+        *ngIf="!authService.isAuthenticated()"
         class="nav-item nav-link"
         [routerLink]="['/login']"
         routerLinkActive="active text-primary"
         >Login</a
       >
+      <a
+        *ngIf="authService.isAuthenticated()"
+        class="nav-item nav-link"
+        (click)="logout()"
+        >Logout</a
+      >
+
+      <select
+        (change)="translate()"
+        class="form-control"
+        [(ngModel)]="currentLangage"
+      >
+        <option
+          *ngFor="let lang of translateService.getLangs()"
+          value="{{ lang }}"
+        >
+          {{ lang }}
+        </option>
+      </select>
     </div>
   </div>
 </nav>

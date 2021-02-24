@@ -18,15 +18,18 @@ export class AddPersonneComponent implements OnInit {
 
   ngOnInit(): void {}
   addPersonne(personne: Personne) {
-    if (this.cvService.addCv(personne)) {
-      this.toaster.success(
-        `${personne.firstname} ${personne.name} a été ajouté avec succès`
-      );
-      this.router.navigate(['cv']);
-    } else {
-      this.toaster.error(
-        `Problème lors de l'ajout, veuillez contacter l'admin`
-      );
-    }
+    this.cvService.addCv(personne).subscribe(
+      (personne) => {
+        this.toaster.success(
+          `${personne.firstname} ${personne.name} a été ajouté avec succès`
+        );
+        this.router.navigate(['cv']);
+      },
+      (erreur) => {
+        this.toaster.error(
+          `Problème lors de l'ajout, veuillez contacter l'admin`
+        );
+      }
+    );
   }
 }

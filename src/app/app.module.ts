@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -40,7 +40,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { TestObservableComponent } from './components/test-observable/test-observable.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { HttpTestComponent } from './components/http-test/http-test.component';
+import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,8 +91,15 @@ import { HttpTestComponent } from './components/http-test/http-test.component';
     BrowserAnimationsModule, // required animations module
     HttpClientModule,
     ToastrModule.forRoot(), // ToastrModule added
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

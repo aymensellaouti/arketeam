@@ -1,18 +1,17 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { Personne } from './../model/personne';
 
-const PERSONNE_API_LINK = 'https://immense-citadel-91115.herokuapp.com/api/personnes/';
+const PERSONNE_API_LINK =
+  'https://immense-citadel-91115.herokuapp.com/api/personnes/';
 @Injectable({
   providedIn: 'root',
 })
 export class CvService {
   personnes: Personne[] = [];
   selectItemSubject = new Subject<Personne>();
-  constructor(
-    private http: HttpClient
-  ) {
+  constructor(private http: HttpClient) {
     this.personnes = [
       new Personne(1, 'sellaouti', 'aymen', 'teacher', 'as.jpg', 1234, 38),
       new Personne(2, 'Atouillant', 'Mathieu', 'Dev', '', 1234, 17),
@@ -36,7 +35,7 @@ export class CvService {
     return this.http.get<Personne>(PERSONNE_API_LINK + id);
   }
 
-  deleteCv(personne: Personne): boolean {
+  deleteFakeCv(personne: Personne): boolean {
     const index = this.personnes.indexOf(personne);
     if (index === -1) {
       return false;
@@ -45,14 +44,11 @@ export class CvService {
     return true;
   }
 
-  addCv(personne: Personne): boolean {
-    try {
-      personne.id = this.personnes[this.personnes.length - 1].id + 1;
-      this.personnes.push(personne);
-      return true;
-    } catch (e) {
-      return false;
-    }
+  deleteCvById(id: number): Observable<unknown> {
+    return this.http.delete<unknown>(PERSONNE_API_LINK + id);
+  }
+  addCv(personne: Personne): Observable<Personne> {
+    return this.http.post<Personne>(PERSONNE_API_LINK, personne);
   }
 
   selectItem(personne) {

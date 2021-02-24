@@ -38,7 +38,13 @@
               </tbody>
             </table>
             <div class="d-flex justify-content-center">
-              <button class="btn btn-danger" (click)="delete()">Delete</button>
+              <button
+                *ngIf="authService.isAuthenticated()"
+                class="btn btn-danger"
+                (click)="delete()"
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>
