@@ -82,8 +82,8 @@ import { HttpTestComponent } from './components/http-test/http-test.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule, // required animations module
+    BrowserAnimationsModule, // required animations module
+    HttpClientModule,
     ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],

@@ -1,6 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { catchError } from 'rxjs/operators';
 import { Personne } from '../model/personne';
 import { CvService } from '../services/cv.service';
+import { ToastrService } from 'ngx-toastr';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -9,13 +12,17 @@ import { CvService } from '../services/cv.service';
 })
 export class ListComponent implements OnInit {
   personnes: Personne[] = [];
-  /*   @Output() forwardPersonne = new EventEmitter(); */
-  constructor(private cvService: CvService) {}
+  listPersonne$ = null;
+  constructor(private cvService: CvService, private toaster: ToastrService) {}
 
   ngOnInit(): void {
-    this.personnes = this.cvService.getCvs();
+    this.listPersonne$ = this.cvService.getCvs().pipe(
+      catchError((erreur) => {
+        this.toaster.warning(
+          `Problème d'accès au serveur, les données sont fake`
+        );
+        return of(this.cvService.getFakeCvs);
+      })
+    );
   }
-  /*   forwardItem(personne: Personne) {
-    this.forwardPersonne.emit(personne);
-  } */
 }

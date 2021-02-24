@@ -1,6 +1,6 @@
 <ol class="list-group">
   <li
-    *ngFor="let actualPersonne of personnes; let isOdd = odd"
+    *ngFor="let actualPersonne of listPersonne$ | async; let isOdd = odd"
     class="list-group-item"
     [ngClass]="{
       'list-group-item-danger': isOdd,
