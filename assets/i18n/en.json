@@ -1,0 +1,5 @@
+{
+  "home": {
+    "messageAccueil": "Welcome {{user.name}}"
+  }
+}
